@@ -126,9 +126,9 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         // Check if User is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
         if(currentUser != null) {
-            //Intent in = new Intent(this, Dummy_Console.class);
-            //startActivity(in);
-            query_users(currentUser);
+            Intent in = new Intent(this, Main_Console.class);
+            startActivity(in);
+            //query_users(currentUser);
             Toast.makeText(LoginScreen.this, "Alredy login",
                     Toast.LENGTH_SHORT).show();
         }
@@ -171,6 +171,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                         // [START_EXCLUDE]
                         if (!task.isSuccessful()) {
                             login_status.setText(R.string.auth_failed);
+                            progressDialog.hide();
                         }
 
                         //hideProgressDialog();

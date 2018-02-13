@@ -42,9 +42,11 @@ public class Frag_Invite extends Fragment {
         SearchView searchView;
         ListView listView;
         ArrayAdapter<String> arrayAdapter;
-        List<String> users_list=new ArrayList<>();
+        //List<String> users_list=new ArrayList<>();
+         List<User> users_list=new ArrayList<>();
         List<User> list=new ArrayList<>();
-        ArrayAdapter<String> adapter;
+        //ArrayAdapter<String> adapter;
+        Adapter_Custom_ListView_Invite adapter;
 
 public Frag_Invite() {
         // Required empty public constructor
@@ -78,7 +80,8 @@ public Frag_Invite() {
         //databaseReference.child("users").orderByChild("name").equalTo("pet");
 
 
-        adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,users_list);
+        //adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,users_list);
+        adapter = new Adapter_Custom_ListView_Invite((ArrayList<User>) list,getContext());
         list.clear();
         listView.setAdapter(adapter);
 
@@ -110,7 +113,8 @@ public Frag_Invite() {
         //databaseReference.child("users").orderByChild("name").equalTo("pet");
 
 
-        adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,users_list);
+        //adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,users_list);
+        adapter = new Adapter_Custom_ListView_Invite((ArrayList<User>) list,getContext());
         list.clear();
         listView.setAdapter(adapter);
     }
@@ -152,11 +156,12 @@ public Frag_Invite() {
                    // list.add(user);
                // }
                 list.add(user);
+
                 //users_list.add(dataSnapshot.getValue().toString());
                 if (!list.isEmpty()){
                     //adapter.addAll(String.valueOf(list));
-                    adapter.add(user.toString());
-
+                   // adapter.add(user.toString());
+                        //adapter.add(user);
                 }
                 adapter.notifyDataSetChanged();
                 Log.d("Dummy console ","The "+dataSnapshot.getKey()+" score is "+dataSnapshot.getValue());
