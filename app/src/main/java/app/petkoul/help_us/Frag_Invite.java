@@ -151,6 +151,7 @@ public Frag_Invite() {
         databaseReference.orderByChild("name").equalTo(s).addChildEventListener(new ChildEventListener(){
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot,String s){
+
                 User user=dataSnapshot.getValue(User.class);
                 //if(user.getCategory().equals("patient")){
                    // list.add(user);
@@ -160,8 +161,8 @@ public Frag_Invite() {
                 //users_list.add(dataSnapshot.getValue().toString());
                 if (!list.isEmpty()){
                     //adapter.addAll(String.valueOf(list));
-                   // adapter.add(user.toString());
-                        //adapter.add(user);
+                    // adapter.add(user.toString());
+                    // adapter.add(user);
                 }
                 adapter.notifyDataSetChanged();
                 Log.d("Dummy console ","The "+dataSnapshot.getKey()+" score is "+dataSnapshot.getValue());
