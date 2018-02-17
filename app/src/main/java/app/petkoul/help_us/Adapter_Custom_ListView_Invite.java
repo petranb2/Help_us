@@ -108,8 +108,9 @@ public class Adapter_Custom_ListView_Invite extends ArrayAdapter<User> {
         //usersDatabaseRefence.push().setValue(new_user);
         usersDatabaseRefence.push().setValue(invitation);
         Log.d("Send Invitation", "Invitation send");
-
-
+        usersDatabaseRefence = firebaseDatabase.getReference().child("users_meta/invitation_status/"+current_user.getUid());
+        usersDatabaseRefence.(invited_user.getUid());
+        usersDatabaseRefence.setValue("invitation send");
     }
 
     private boolean query (final User invited_user){
