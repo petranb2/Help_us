@@ -127,12 +127,12 @@ public Frag_Invite() {
 
     private void query_users(String s){
         //final  List<String> users = new ArrayList<>();
-        Log.d("Dummy Console","start querry");
+        Log.d("Frag Invite","start querry");
 
         databaseReference.orderByChild("name").equalTo(s).addListenerForSingleValueEvent(new ValueEventListener(){
             @Override
             public void onDataChange(DataSnapshot dataSnapshot){
-                Log.d("Dummy Console",String.valueOf(dataSnapshot.getChildrenCount()));
+                //Log.d("Frag Invite",String.valueOf(dataSnapshot.getChildrenCount()));
                 //adapter.clear();
                 //adapter.addAll(users_list);
                 /*if (!list.isEmpty()){
@@ -165,8 +165,9 @@ public Frag_Invite() {
                     // adapter.add(user);
                 }
                 adapter.notifyDataSetChanged();
-                Log.d("Dummy console ","The "+dataSnapshot.getKey()+" score is "+dataSnapshot.getValue());
-                Log.d("Dummy console user: ",user.toString());
+                Log.d("Frag Invite user: ",user.toString());
+                Log.d("Frag Invite",String.valueOf(dataSnapshot.getChildrenCount()));
+
             }
 
             @Override
@@ -186,12 +187,12 @@ public Frag_Invite() {
 
             @Override
             public void onCancelled(DatabaseError databaseError){
-                Log.d("Dummy Console","on cancelled");
+                Log.d("Frag Invite","on cancelled");
             }
         });
 
 
-        Log.d("Dummy Console","end querry");
+        Log.d("Frag Invite","end querry");
         //databaseReference.child("name").orderByValue("pet").addListenerForSingleValueEvent();
         //databaseReference.onDisconnect();
         //return users;
